@@ -2248,6 +2248,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_xupnpd = 0;
 #endif
+#if defined (WEBUI_HIDE_VPN)
+	int support_vpn = 0;
+#else
+	int support_vpn = 1;
+#endif
 #if defined(USE_IPV6)
 	int has_ipv6 = 1;
 #else
@@ -2475,6 +2480,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function support_5g_mumimo() { return %d;}\n"
 		"function support_sfe() { return %d;}\n"
 		"function support_lan_ap_isolate() { return %d;}\n"
+		"function support_vpn() { return %d;}\n"
 		"function support_5g_160mhz() { return %d;}\n"
 		"function support_5g_11ax() { return %d;}\n"
 		"function support_2g_11ax() { return %d;}\n",
@@ -2512,6 +2518,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		has_5g_mumimo,
 		has_sfe,
 		has_lan_ap_isolate,
+		support_vpn,
 		has_5g_160mhz,
 		has_5g_11ax,
 		has_2g_11ax
@@ -2853,6 +2860,7 @@ static int ej_get_flash_time(int eid, webs_t wp, int argc, char **argv)
 	return 0;
 }
 
+#ifndef WEBUI_HIDE_VPN
 static int ej_get_vpns_client(int eid, webs_t wp, int argc, char **argv)
 {
 	FILE *fp;
@@ -2878,6 +2886,7 @@ static int ej_get_vpns_client(int eid, webs_t wp, int argc, char **argv)
 
 	return 0;
 }
+#endif
 
 struct cpu_stats {
 	unsigned long long user;    // user (application) usage
