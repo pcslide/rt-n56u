@@ -26,10 +26,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - build_variant: "mt7621"
-            targets: "CR660x"
+     #     - build_variant: "mt7621"
+     #       targets: "CR660x"
           - build_variant: "mt7621-usb"
-            targets: "NETGEAR-BZV MI-R3G"
+            targets: "NETGEAR-BZV"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
