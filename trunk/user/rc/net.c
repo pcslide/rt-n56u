@@ -896,7 +896,7 @@ set_tcp_tweaks(void)
 	fput_int(tmp, 3);		// def: 5
 
 	sprintf(tmp, "/proc/sys/net/%s/%s", "ipv4", "tcp_tw_recycle");
-	fput_int(tmp, 1);
+	fput_int(tmp, 0);
 
 	sprintf(tmp, "/proc/sys/net/%s/%s", "ipv4", "tcp_tw_reuse");
 	fput_int(tmp, 1);
