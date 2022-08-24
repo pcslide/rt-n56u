@@ -6,7 +6,7 @@
 #define BOARD_VENDOR_NAME	"NETGEAR Co., Ltd."
 #define BOARD_VENDOR_URL	"http://www.netgear.com/"
 #define BOARD_MODEL_URL		"http://www.netgear.com/"
-#define BOARD_BOOT_TIME		20
+#define BOARD_BOOT_TIME		60
 #define BOARD_FLASH_TIME	120
 #define BOARD_GPIO_BTN_RESET	12
 #define BOARD_GPIO_BTN_WPS	18
